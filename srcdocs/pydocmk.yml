@@ -1,0 +1,49 @@
+docs_dir: srcdocs/docs
+gens_dir: srcdocs/mkdocs # This will end up as the MkDocs 'docs_dir'
+site_dir: ../docs
+pydocng_pre_dir: srcdocs/pre
+pydocng_post_dir: srcdocs/post
+use_directory_urls: false
+
+site_name: pydocmk2
+repo_url: https://github.com/twardoch/pydocmk2
+theme: material
+
+generate:
+      - pydocmk2.md:
+              - pydocmk2++
+      - pydocmk2.__main__.md:
+              - pydocmk2.__main__++
+      - pydocmk2.document.md:
+              - pydocmk2.document++
+      - pydocmk2.imp.md:
+              - pydocmk2.imp++
+      - pydocmk2.loader.md:
+              - pydocmk2.loader++
+      - pydocmk2.preprocessors.md:
+              - pydocmk2.preprocessors++
+      - pydocmk2.preprocessors.google.md:
+              - pydocmk2.preprocessors.google++
+      - pydocmk2.preprocessors.pydocproc.md:
+              - pydocmk2.preprocessors.pydocproc++
+      - pydocmk2.preprocessors.rst.md:
+              - pydocmk2.preprocessors.rst++
+      - pydocmk2.preprocessors.simple.md:
+              - pydocmk2.preprocessors.simple++
+      - pydocmk2.preprocessors.smart.md:
+              - pydocmk2.preprocessors.smart++
+pages:
+      - home: index.md << ../README.md
+      - documentation:
+              - pydocmk2: pydocmk2.md
+              - __main__: pydocmk2.__main__.md
+              - document: pydocmk2.document.md
+              - imp: pydocmk2.imp.md
+              - loader: pydocmk2.loader.md
+      - preprocessors:
+              - preprocessors: pydocmk2.preprocessors.md
+              - google: pydocmk2.preprocessors.google.md
+              - pydocproc: pydocmk2.preprocessors.pydocproc.md
+              - rst: pydocmk2.preprocessors.rst.md
+              - simple: pydocmk2.preprocessors.simple.md
+              - smart: pydocmk2.preprocessors.smart.md

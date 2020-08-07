@@ -17,6 +17,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-
-__author__ = 'Niklas Rosenstein <rosensteinniklas@gmail.com>'
-__version__ = '2.1.3'
+"""
+pymdocmk2 module
+"""
+__author__ = 'Adam Twardoch <adam+github@twardoch.com>'
+__version__ = '2.2.0'

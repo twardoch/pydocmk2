@@ -1,14 +1,14 @@
 
 import textwrap
 from .utils import PreprocessorTest
-from pydocmd.preprocessors.rst import Preprocessor
+from pydocmk2.preprocessors.rst import Preprocessor
 
 
 class RSTPreprocessorTest(PreprocessorTest):
 
-  preprocessor = Preprocessor()
+    preprocessor = Preprocessor()
 
-  code = textwrap.dedent('''
+    code = textwrap.dedent('''
     def foo(a, b):
       """
       ```
@@ -25,7 +25,7 @@ class RSTPreprocessorTest(PreprocessorTest):
       """
   ''')
 
-  expected_docs = textwrap.dedent('''
+    expected_docs = textwrap.dedent('''
       ```
       Param(foo, foo=bar)
       ```

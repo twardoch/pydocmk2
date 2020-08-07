@@ -1,11 +1,11 @@
-name: "pydoc-markdown"
+name: "pydocmk2"
 source-directory: "."
-modulename: "pydocmd"
-version: "2.1.3"
-author: "Niklas Rosenstein <rosensteinniklas@gmail.com>"
-license: "MIT"
+modulename: "pydocmk2"
+version: "2.2.0"
+author: "Adam Twardoch <adam+github@twardoch.com>"
+license: "MIT + PSF2"
 description: "Create Python API documentation in Markdown format"
-url: "https://github.com/NiklasRosenstein/pydoc-markdown"
+url: "https://github.com/twardoch/pydocmk2"
 tag-format: "v{version}"
 
 keywords:
@@ -30,7 +30,7 @@ classifiers:
   - "Programming Language :: Python :: 3.5"
 
 requirements:
-  - python ^3.4
+  - python>=2.7
   - MkDocs>=1.0.0
   - Markdown>=2.6.11
   - PyYAML>=3.12
@@ -39,7 +39,7 @@ requirements:
 
 entrypoints:
   console_scripts:
-    - pydocmd=pydocmd.__main__:main
+    - pydocmk2=pydocmk2.__main__:main
 
 manifest:
   - include LICENSE.txt

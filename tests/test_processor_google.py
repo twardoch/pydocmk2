@@ -1,17 +1,17 @@
 
 import textwrap
 from .utils import PreprocessorTest
-from pydocmd.preprocessors.google import Preprocessor
+from pydocmk2.preprocessors.google import Preprocessor
 
 
 class GooglePreprocessorTest(PreprocessorTest):
 
-  # NOTE: The google preprocessor does not produce clean line endings.
-  trim_trailing_whitespace = True
+    # NOTE: The google preprocessor does not produce clean line endings.
+    trim_trailing_whitespace = True
 
-  preprocessor = Preprocessor()
+    preprocessor = Preprocessor()
 
-  code = textwrap.dedent('''
+    code = textwrap.dedent('''
     def foo(a, b):
       """Foo a and b.
 
@@ -26,7 +26,7 @@ class GooglePreprocessorTest(PreprocessorTest):
       """
   ''')
 
-  expected_docs = textwrap.dedent('''
+    expected_docs = textwrap.dedent('''
     Foo a and b.
 
     This is a function that computes a foo combination of two integers.

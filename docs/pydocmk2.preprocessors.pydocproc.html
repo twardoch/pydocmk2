@@ -1,0 +1,948 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>pydocproc - pydocmk2</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="pydocmk2" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              pydocmk2
+            </span>
+            <span class="md-header-nav__topic">
+              
+                pydocproc
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/twardoch/pydocmk2/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="pydocmk2" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    pydocmk2
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/twardoch/pydocmk2/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="home" class="md-nav__link">
+      home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.html" title="pydocmk2" class="md-nav__link">
+      pydocmk2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.__main__.html" title="__main__" class="md-nav__link">
+      __main__
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.document.html" title="document" class="md-nav__link">
+      document
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.imp.html" title="imp" class="md-nav__link">
+      imp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.loader.html" title="loader" class="md-nav__link">
+      loader
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      preprocessors
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        preprocessors
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.preprocessors.html" title="preprocessors" class="md-nav__link">
+      preprocessors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.preprocessors.google.html" title="google" class="md-nav__link">
+      google
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="pydocmk2.preprocessors.pydocproc.html" title="pydocproc" class="md-nav__link md-nav__link--active">
+      pydocproc
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.preprocessors.rst.html" title="rst" class="md-nav__link">
+      rst
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.preprocessors.simple.html" title="simple" class="md-nav__link">
+      simple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pydocmk2.preprocessors.smart.html" title="smart" class="md-nav__link">
+      smart
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/twardoch/pydocmk2/edit/master/docs/pydocmk2.preprocessors.pydocproc.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pydocmk2.preprocessors.pydocproc">pydocmk2.preprocessors.pydocproc</h1>
+
+<h2><a href="./pydocmk2.html">pydocmk2</a>.<a href="./pydocmk2.preprocessors.html">preprocessors</a>.pydocproc</h2>
+
+<p><span class="file-reference">/Users/adam/Developer/vcs/github.twardoch/pub/pydocmk2/pydocmk2/preprocessors/pydocproc.py</span> <div class="module">  <div class="docstring">
+<pre class="doc">pydocproc preprocessor</pre>
+</div>  <div class="modules"><h3>Modules</h3><ul class="list"><li><a href="./__builtin__.html"><strong>builtin</strong></a></li><li><a href="./codecs.html">codecs</a></li><li><a href="./collections.html">collections</a></li><li><a href="./inspect.html">inspect</a></li><li><a href="./jinja2.html">jinja2</a></li><li><a href="./os.html">os</a></li><li><a href="./pkgutil.html">pkgutil</a></li><li><a href="./pydoc.html">pydoc</a></li><li><a href="./re.html">re</a></li><li><a href="./string.html">string</a></li><li><a href="./sys.html">sys</a></li></ul></div>  <div class="classes"><h3>Classes</h3><ul class="tree"><li><span class="class-name"><a href="./__builtin__.html#object"><strong>builtin</strong>.object</a></span></li><li><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">MarkdownDoc</a></span>(<span class="bases">pydoc.HTMLDoc, <strong>builtin</strong>.object</span>)</li><li><span class="class-name"><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownRepr">MarkdownRepr</a></span>(<span class="bases">pydoc.TextRepr, <strong>builtin</strong>.object</span>)</li><li><span class="class-name"><a href="./pydocmk2.preprocessors.pydocproc.html#Preprocessor">Preprocessor</a></span></li></ul></li><li><span class="class-name"><a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a></span>(<span class="bases">pydoc.Doc</span>)</li><li><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">MarkdownDoc</a></span>(<span class="bases">pydoc.HTMLDoc, <strong>builtin</strong>.object</span>)</li></ul></li><li><span class="class-name"><a href="./pydoc.html#TextRepr">pydoc.TextRepr</a></span>(<span class="bases">repr.Repr</span>)</li><li><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownRepr">MarkdownRepr</a></span>(<span class="bases">pydoc.TextRepr, <strong>builtin</strong>.object</span>)</li></ul></li></ul><dl class="classes"><dt class="class"><h2><a name="MarkdownDoc" href="#MarkdownDoc">class <span class="class-name">MarkdownDoc</span></a>(<a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a>, <a href="./__builtin__.html#object"><strong>builtin</strong>.object</a>)</h2></dt><dd class="class"><dd></p>
+<pre class="doc">FIXME: doc* functions need an extra "level" parameter so we can the fitting h[1-6]
+This required overriding the 'document' function, but can only be done once all doc*
+functions are implemented.</pre>
+
+<p></dd>  <div class="mro"><dl class="mro"><dt>Method resolution order:</dt><dd><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">MarkdownDoc</a></dd><dd><a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a></dd><dd><a href="./pydoc.html#Doc">pydoc.Doc</a></dd><dd><a href="./__builtin__.html#object"><strong>builtin</strong>.object</a></dd></dl></div><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="MarkdownDoc-__init__" href="#MarkdownDoc-__init__"><span class="function-name"><strong>init</strong></span></a><span class="argspec">(self, level_offset<span class="parameter-default">=0</span>, local<span class="parameter-default">=False</span>, index_url<span class="parameter-default">='./'</span>)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-classlink" href="#MarkdownDoc-classlink"><span class="function-name">classlink</span></a><span class="argspec">(self, object, modname)</span></dt><dd>
+<pre class="doc">Make a link for a class.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docclass" href="#MarkdownDoc-docclass"><span class="function-name">docclass</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, <em>ignored)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a class <a href="./__builtin__.html#object">object</a>.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docdata" href="#MarkdownDoc-docdata"><span class="function-name">docdata</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce html documentation for a data descriptor.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docmodule" href="#MarkdownDoc-docmodule"><span class="function-name">docmodule</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, </em>ignored)</span></dt><dd>
+<pre class="doc">Produce HTML5 documentation for a module <a href="./__builtin__.html#object">object</a>.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docother" href="#MarkdownDoc-docother"><span class="function-name">docother</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, *ignored)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a data <a href="./__builtin__.html#object">object</a>.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docproperty" href="#MarkdownDoc-docproperty"><span class="function-name">docproperty</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce html documentation for a property.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docroutine" href="#MarkdownDoc-docroutine"><span class="function-name">docroutine</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a function or method <a href="./__builtin__.html#object">object</a>.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-formattree" href="#MarkdownDoc-formattree"><span class="function-name">formattree</span></a><span class="argspec">(self, tree, modname, parent<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Render in text a class tree as returned by inspect.getclasstree().</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-formatvalue" href="#MarkdownDoc-formatvalue"><span class="function-name">formatvalue</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc">Format an argument default value as text.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-getdoc" href="#MarkdownDoc-getdoc"><span class="function-name">getdoc</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-heading" href="#MarkdownDoc-heading"><span class="function-name">heading</span></a><span class="argspec">(self, level, content)</span></dt><dd>
+<pre class="doc">Create a HTML heading</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-listing" href="#MarkdownDoc-listing"><span class="function-name">listing</span></a><span class="argspec">(self, items, formatter<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-markup" href="#MarkdownDoc-markup"><span class="function-name">markup</span></a><span class="argspec">(self, text, escape<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>)</span></dt><dd>
+<pre class="doc">Mark up some plain text, given a context of symbols to look for.
+Each context dictionary maps <a href="./__builtin__.html#object">object</a> names to anchor names.</p>
+<p>i.e. Replaces plaintext URLs with linked versions
+Also escapes input text</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-modpkglink" href="#MarkdownDoc-modpkglink"><span class="function-name">modpkglink</span></a><span class="argspec">(self, data)</span></dt><dd>
+<pre class="doc">Make a link for a module or package to display in an index.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-modulelink" href="#MarkdownDoc-modulelink"><span class="function-name">modulelink</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc">Make a link for a module.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-preformat" href="#MarkdownDoc-preformat"><span class="function-name">preformat</span></a><span class="argspec">(self, text)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-url" href="#MarkdownDoc-url"><span class="function-name">url</span></a><span class="argspec">(self, name)</span></dt><dd>
+<pre class="doc">Create URL for a documentable thing. Mainly intended for subclassing</pre>
+</dd></dl></p>
+<p><h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt><strong>dict</strong></dt>
+<dd>
+<pre class="doc">dictionary for instance variables (if defined)</pre>
+</dd>
+</dl>
+<dl class="descriptor"><dt><strong>weakref</strong></dt>
+<dd>
+<pre class="doc">list of weak references to the object (if defined)</pre>
+</dd>
+</dl></p>
+<p><h4 class="head-attrs">Attributes </h4><dl><dt><span class="other-name">index_url</span> = None</dt></dl>
+<dl><dt><span class="other-name">level_offset</span> = None</dt></dl>
+<dl><dt><span class="other-name">local</span> = None</dt></dl></p>
+<p><h4 class="head-methods">Methods from <a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a></h4><dl class="function"><dt><a name="MarkdownDoc-bigsection" href="#MarkdownDoc-bigsection"><span class="function-name">bigsection</span></a><span class="argspec">(self, title, <em>args)</span></dt><dd>
+<pre class="doc">Format a section with a big heading.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-escape" href="#MarkdownDoc-escape"><span class="function-name">escape</span></a><span class="argspec">(self, text)</span><span class="note"> from <a href="./pydoc.html#HTMLRepr">pydoc.HTMLRepr</a></span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-grey" href="#MarkdownDoc-grey"><span class="function-name">grey</span></a><span class="argspec">(self, text)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-index" href="#MarkdownDoc-index"><span class="function-name">index</span></a><span class="argspec">(self, dir, shadowed<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Generate an HTML index for a directory of modules.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-multicolumn" href="#MarkdownDoc-multicolumn"><span class="function-name">multicolumn</span></a><span class="argspec">(self, list, format, cols<span class="parameter-default">=4</span>)</span></dt><dd>
+<pre class="doc">Format a list of items into a multi-column list.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-namelink" href="#MarkdownDoc-namelink"><span class="function-name">namelink</span></a><span class="argspec">(self, name, </em>dicts)</span></dt><dd>
+<pre class="doc">Make a link for an identifier, given name-to-URL mappings.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-page" href="#MarkdownDoc-page"><span class="function-name">page</span></a><span class="argspec">(self, title, contents)</span></dt><dd>
+<pre class="doc">Format an HTML page.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-repr" href="#MarkdownDoc-repr"><span class="function-name">repr</span></a><span class="argspec">(self, object)</span><span class="note"> from <a href="./pydoc.html#HTMLRepr">pydoc.HTMLRepr</a></span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-section" href="#MarkdownDoc-section"><span class="function-name">section</span></a><span class="argspec">(self, title, fgcol, bgcol, contents, width<span class="parameter-default">=6</span>, prelude<span class="parameter-default">=''</span>, marginalia<span class="parameter-default">=None</span>, gap<span class="parameter-default">='&amp;nbsp;'</span>)</span></dt><dd>
+<pre class="doc">Format a section with a heading.</pre>
+</dd></dl></p>
+<p><h4 class="head-methods">Methods from <a href="./pydoc.html#Doc">pydoc.Doc</a></h4><dl class="function"><dt><a name="MarkdownDoc-document" href="#MarkdownDoc-document"><span class="function-name">document</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, <em>args)</span></dt><dd>
+<pre class="doc">Generate documentation for an <a href="./__builtin__.html#object">object</a>.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-fail" href="#MarkdownDoc-fail"><span class="function-name">fail</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, </em>args)</span></dt><dd>
+<pre class="doc">Raise an exception for unimplemented types.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-getdocloc" href="#MarkdownDoc-getdocloc"><span class="function-name">getdocloc</span></a><span class="argspec">(self, object, basedir<span class="parameter-default">='/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7'</span>)</span></dt><dd>
+<pre class="doc">Return the location of module docs or None</pre>
+</dd></dl>
+</dd>
+<dt class="class"><h2><a name="MarkdownRepr" href="#MarkdownRepr">class <span class="class-name">MarkdownRepr</span></a>(<a href="./pydoc.html#TextRepr">pydoc.TextRepr</a>, <a href="./__builtin__.html#object"><strong>builtin</strong>.object</a>)</h2></dt><dd class="class"><dd></p>
+<pre class="doc"></pre>
+
+<p></dd>  <div class="mro"><dl class="mro"><dt>Method resolution order:</dt><dd><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownRepr">MarkdownRepr</a></dd><dd><a href="./pydoc.html#TextRepr">pydoc.TextRepr</a></dd><dd><a href="./repr.html#Repr">repr.Repr</a></dd><dd><a href="./__builtin__.html#object"><strong>builtin</strong>.object</a></dd></dl></div><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="MarkdownRepr-repr1" href="#MarkdownRepr-repr1"><span class="function-name">repr1</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_string" href="#MarkdownRepr-repr_string"><span class="function-name">repr_string</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl></p>
+<p><h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt><strong>dict</strong></dt>
+<dd>
+<pre class="doc">dictionary for instance variables (if defined)</pre>
+</dd>
+</dl>
+<dl class="descriptor"><dt><strong>weakref</strong></dt>
+<dd>
+<pre class="doc">list of weak references to the object (if defined)</pre>
+</dd>
+</dl></p>
+<p><h4 class="head-methods">Methods from <a href="./pydoc.html#TextRepr">pydoc.TextRepr</a></h4><dl class="function"><dt><a name="MarkdownRepr-__init__" href="#MarkdownRepr-__init__"><span class="function-name"><strong>init</strong></span></a><span class="argspec">(self)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_instance" href="#MarkdownRepr-repr_instance"><span class="function-name">repr_instance</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_str" href="#MarkdownRepr-repr_str"><span class="function-name">repr_str</span></a> = repr_string<span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl></p>
+<p><h4 class="head-methods">Methods from <a href="./repr.html#Repr">repr.Repr</a></h4><dl class="function"><dt><a name="MarkdownRepr-repr" href="#MarkdownRepr-repr"><span class="function-name">repr</span></a><span class="argspec">(self, x)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_array" href="#MarkdownRepr-repr_array"><span class="function-name">repr_array</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_deque" href="#MarkdownRepr-repr_deque"><span class="function-name">repr_deque</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_dict" href="#MarkdownRepr-repr_dict"><span class="function-name">repr_dict</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_frozenset" href="#MarkdownRepr-repr_frozenset"><span class="function-name">repr_frozenset</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_list" href="#MarkdownRepr-repr_list"><span class="function-name">repr_list</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_long" href="#MarkdownRepr-repr_long"><span class="function-name">repr_long</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_set" href="#MarkdownRepr-repr_set"><span class="function-name">repr_set</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownRepr-repr_tuple" href="#MarkdownRepr-repr_tuple"><span class="function-name">repr_tuple</span></a><span class="argspec">(self, x, level)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+</dd>
+<dt class="class"><h2><a name="Preprocessor" href="#Preprocessor">class <span class="class-name">Preprocessor</span></a>(<a href="./__builtin__.html#object"><strong>builtin</strong>.object</a>)</h2></dt><dd class="class"><dd></p>
+<pre class="doc">This class implements the basic preprocessing.</pre>
+
+<p></dd><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="Preprocessor-__init__" href="#Preprocessor-__init__"><span class="function-name"><strong>init</strong></span></a><span class="argspec">(self, config)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="Preprocessor-preprocess_section" href="#Preprocessor-preprocess_section"><span class="function-name">preprocess_section</span></a><span class="argspec">(self, section)</span></dt><dd>
+<pre class="doc">Preprocess the contents of <em>section</em>.</pre>
+</dd></dl></p>
+<p><h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt><strong>dict</strong></dt>
+<dd>
+<pre class="doc">dictionary for instance variables (if defined)</pre>
+</dd>
+</dl>
+<dl class="descriptor"><dt><strong>weakref</strong></dt>
+<dd>
+<pre class="doc">list of weak references to the object (if defined)</pre>
+</dd>
+</dl>
+</dd></dl></div>  <div class="functions"><h3>Functions</h3><dl class="functions"><dl class="function"><dt><a name="-clean" href="#-clean"><span class="function-name">clean</span></a><span class="argspec">(text)</span></dt><dd>
+<pre class="doc">mainly for cleaning &lt; and &gt; from <code>Repr</code>s</pre>
+</dd></dl></p>
+<dl class="function"><dt><a name="-doc" href="#-doc"><span class="function-name">doc</span></a><span class="argspec">(name)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+
+<p></dl></div></div>
+<h2 id="pydocmk2.preprocessors.pydocproc.clean">clean</h2></p>
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.clean" href="#-pydocmk2.preprocessors.pydocproc.clean"><span class="function-name">pydocmk2.preprocessors.pydocproc.clean</span></a> = clean<span class="argspec">(text)</span></dt><dd>
+<pre class="doc">mainly for cleaning < and > from `Repr`s</pre>
+</dd></dl>
+
+<h2 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc">MarkdownDoc</h2>
+
+<dt class="class"><h2><span class="class-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc</span> = <a name="pydocmk2.preprocessors.pydocproc.MarkdownDoc" href="#pydocmk2.preprocessors.pydocproc.MarkdownDoc">class MarkdownDoc</a>(<a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a>, <a href="./__builtin__.html#object">__builtin__.object</a>)</h2></dt>
+
+<dd class="class"><dd>
+
+<pre class="doc">FIXME: doc* functions need an extra "level" parameter so we can the fitting h[1-6]
+This required overriding the 'document' function, but can only be done once all doc*
+functions are implemented.</pre>
+
+</dd>  <div class="mro"><dl class="mro"><dt>Method resolution order:</dt><dd><a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">MarkdownDoc</a></dd><dd><a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a></dd><dd><a href="./pydoc.html#Doc">pydoc.Doc</a></dd><dd><a href="./__builtin__.html#object">__builtin__.object</a></dd></dl></div><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="MarkdownDoc-__init__" href="#MarkdownDoc-__init__"><span class="function-name">__init__</span></a><span class="argspec">(self, level_offset<span class="parameter-default">=0</span>, local<span class="parameter-default">=False</span>, index_url<span class="parameter-default">='./'</span>)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-classlink" href="#MarkdownDoc-classlink"><span class="function-name">classlink</span></a><span class="argspec">(self, object, modname)</span></dt><dd>
+<pre class="doc">Make a link for a class.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docclass" href="#MarkdownDoc-docclass"><span class="function-name">docclass</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, *ignored)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a class object.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docdata" href="#MarkdownDoc-docdata"><span class="function-name">docdata</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce html documentation for a data descriptor.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docmodule" href="#MarkdownDoc-docmodule"><span class="function-name">docmodule</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, *ignored)</span></dt><dd>
+<pre class="doc">Produce HTML5 documentation for a module object.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docother" href="#MarkdownDoc-docother"><span class="function-name">docother</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, *ignored)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a data object.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docproperty" href="#MarkdownDoc-docproperty"><span class="function-name">docproperty</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce html documentation for a property.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-docroutine" href="#MarkdownDoc-docroutine"><span class="function-name">docroutine</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>, cl<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a function or method object.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-formattree" href="#MarkdownDoc-formattree"><span class="function-name">formattree</span></a><span class="argspec">(self, tree, modname, parent<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Render in text a class tree as returned by inspect.getclasstree().</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-formatvalue" href="#MarkdownDoc-formatvalue"><span class="function-name">formatvalue</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc">Format an argument default value as text.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-getdoc" href="#MarkdownDoc-getdoc"><span class="function-name">getdoc</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-heading" href="#MarkdownDoc-heading"><span class="function-name">heading</span></a><span class="argspec">(self, level, content)</span></dt><dd>
+<pre class="doc">Create a HTML heading</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-listing" href="#MarkdownDoc-listing"><span class="function-name">listing</span></a><span class="argspec">(self, items, formatter<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-markup" href="#MarkdownDoc-markup"><span class="function-name">markup</span></a><span class="argspec">(self, text, escape<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>)</span></dt><dd>
+<pre class="doc">Mark up some plain text, given a context of symbols to look for.
+Each context dictionary maps object names to anchor names.
+
+i.e. Replaces plaintext URLs with linked versions
+Also escapes input text</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-modpkglink" href="#MarkdownDoc-modpkglink"><span class="function-name">modpkglink</span></a><span class="argspec">(self, data)</span></dt><dd>
+<pre class="doc">Make a link for a module or package to display in an index.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-modulelink" href="#MarkdownDoc-modulelink"><span class="function-name">modulelink</span></a><span class="argspec">(self, object)</span></dt><dd>
+<pre class="doc">Make a link for a module.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-preformat" href="#MarkdownDoc-preformat"><span class="function-name">preformat</span></a><span class="argspec">(self, text)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-url" href="#MarkdownDoc-url"><span class="function-name">url</span></a><span class="argspec">(self, name)</span></dt><dd>
+<pre class="doc">Create URL for a documentable thing. Mainly intended for subclassing</pre>
+</dd></dl>
+
+  <h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt>__dict__</dt>
+<dd>
+<pre class="doc">dictionary for instance variables (if defined)</pre>
+</dd>
+</dl>
+<dl class="descriptor"><dt>__weakref__</dt>
+<dd>
+<pre class="doc">list of weak references to the object (if defined)</pre>
+</dd>
+</dl>
+
+  <h4 class="head-attrs">Attributes </h4><dl><dt><span class="other-name">index_url</span> = None</dt></dl>
+<dl><dt><span class="other-name">level_offset</span> = None</dt></dl>
+<dl><dt><span class="other-name">local</span> = None</dt></dl>
+
+  <h4 class="head-methods">Methods from <a href="./pydoc.html#HTMLDoc">pydoc.HTMLDoc</a></h4><dl class="function"><dt><a name="MarkdownDoc-bigsection" href="#MarkdownDoc-bigsection"><span class="function-name">bigsection</span></a><span class="argspec">(self, title, *args)</span></dt><dd>
+<pre class="doc">Format a section with a big heading.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-escape" href="#MarkdownDoc-escape"><span class="function-name">escape</span></a><span class="argspec">(self, text)</span><span class="note"> from <a href="./pydoc.html#HTMLRepr">pydoc.HTMLRepr</a></span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-grey" href="#MarkdownDoc-grey"><span class="function-name">grey</span></a><span class="argspec">(self, text)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-index" href="#MarkdownDoc-index"><span class="function-name">index</span></a><span class="argspec">(self, dir, shadowed<span class="parameter-default">=None</span>)</span></dt><dd>
+<pre class="doc">Generate an HTML index for a directory of modules.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-multicolumn" href="#MarkdownDoc-multicolumn"><span class="function-name">multicolumn</span></a><span class="argspec">(self, list, format, cols<span class="parameter-default">=4</span>)</span></dt><dd>
+<pre class="doc">Format a list of items into a multi-column list.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-namelink" href="#MarkdownDoc-namelink"><span class="function-name">namelink</span></a><span class="argspec">(self, name, *dicts)</span></dt><dd>
+<pre class="doc">Make a link for an identifier, given name-to-URL mappings.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-page" href="#MarkdownDoc-page"><span class="function-name">page</span></a><span class="argspec">(self, title, contents)</span></dt><dd>
+<pre class="doc">Format an HTML page.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-repr" href="#MarkdownDoc-repr"><span class="function-name">repr</span></a><span class="argspec">(self, object)</span><span class="note"> from <a href="./pydoc.html#HTMLRepr">pydoc.HTMLRepr</a></span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-section" href="#MarkdownDoc-section"><span class="function-name">section</span></a><span class="argspec">(self, title, fgcol, bgcol, contents, width<span class="parameter-default">=6</span>, prelude<span class="parameter-default">=''</span>, marginalia<span class="parameter-default">=None</span>, gap<span class="parameter-default">='&amp;nbsp;'</span>)</span></dt><dd>
+<pre class="doc">Format a section with a heading.</pre>
+</dd></dl>
+
+  <h4 class="head-methods">Methods from <a href="./pydoc.html#Doc">pydoc.Doc</a></h4><dl class="function"><dt><a name="MarkdownDoc-document" href="#MarkdownDoc-document"><span class="function-name">document</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, *args)</span></dt><dd>
+<pre class="doc">Generate documentation for an object.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-fail" href="#MarkdownDoc-fail"><span class="function-name">fail</span></a><span class="argspec">(self, object, name<span class="parameter-default">=None</span>, *args)</span></dt><dd>
+<pre class="doc">Raise an exception for unimplemented types.</pre>
+</dd></dl>
+<dl class="function"><dt><a name="MarkdownDoc-getdocloc" href="#MarkdownDoc-getdocloc"><span class="function-name">getdocloc</span></a><span class="argspec">(self, object, basedir<span class="parameter-default">='/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7'</span>)</span></dt><dd>
+<pre class="doc">Return the location of module docs or None</pre>
+</dd></dl>
+</dd>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.heading">heading</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.heading" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.heading"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.heading</span></a> = heading<span class="argspec">(self, level, content)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Create a HTML heading</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.url">url</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.url" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.url"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.url</span></a> = url<span class="argspec">(self, name)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Create URL for a documentable thing. Mainly intended for subclassing</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.modpkglink">modpkglink</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.modpkglink" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.modpkglink"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.modpkglink</span></a> = modpkglink<span class="argspec">(self, data)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Make a link for a module or package to display in an index.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.modulelink">modulelink</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.modulelink" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.modulelink"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.modulelink</span></a> = modulelink<span class="argspec">(self, object)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Make a link for a module.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.classlink">classlink</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.classlink" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.classlink"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.classlink</span></a> = classlink<span class="argspec">(self, object, modname)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Make a link for a class.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.formattree">formattree</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.formattree" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.formattree"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.formattree</span></a> = formattree<span class="argspec">(self, tree, modname, parent<span class="parameter-default">=None</span>)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Render in text a class tree as returned by inspect.getclasstree().</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.markup">markup</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.markup" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.markup"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.markup</span></a> = markup<span class="argspec">(self, text, escape<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Mark up some plain text, given a context of symbols to look for.
+Each context dictionary maps object names to anchor names.
+
+i.e. Replaces plaintext URLs with linked versions
+Also escapes input text</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docmodule">docmodule</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docmodule" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docmodule"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docmodule</span></a> = docmodule<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, *ignored)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce HTML5 documentation for a module object.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docclass">docclass</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docclass" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docclass"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docclass</span></a> = docclass<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, *ignored)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a class object.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.formatvalue">formatvalue</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.formatvalue" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.formatvalue"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.formatvalue</span></a> = formatvalue<span class="argspec">(self, object)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Format an argument default value as text.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docroutine">docroutine</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docroutine" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docroutine"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docroutine</span></a> = docroutine<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, funcs<span class="parameter-default">={}</span>, classes<span class="parameter-default">={}</span>, methods<span class="parameter-default">={}</span>, cl<span class="parameter-default">=None</span>)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a function or method object.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docproperty">docproperty</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docproperty" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docproperty"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docproperty</span></a> = docproperty<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce html documentation for a property.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docother">docother</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docother" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docother"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docother</span></a> = docother<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, *ignored)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce HTML documentation for a data object.</pre>
+</dd></dl>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.MarkdownDoc.docdata">docdata</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docdata" href="#-pydocmk2.preprocessors.pydocproc.MarkdownDoc.docdata"><span class="function-name">pydocmk2.preprocessors.pydocproc.MarkdownDoc.docdata</span></a> = docdata<span class="argspec">(self, object, name<span class="parameter-default">=None</span>, mod<span class="parameter-default">=None</span>, cl<span class="parameter-default">=None</span>)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#MarkdownDoc">pydocmk2.preprocessors.pydocproc.MarkdownDoc</a> method</span></dt><dd>
+<pre class="doc">Produce html documentation for a data descriptor.</pre>
+</dd></dl>
+
+<h2 id="pydocmk2.preprocessors.pydocproc.Preprocessor">Preprocessor</h2>
+
+<dt class="class"><h2><span class="class-name">pydocmk2.preprocessors.pydocproc.Preprocessor</span> = <a name="pydocmk2.preprocessors.pydocproc.Preprocessor" href="#pydocmk2.preprocessors.pydocproc.Preprocessor">class Preprocessor</a>(<a href="./__builtin__.html#object">__builtin__.object</a>)</h2></dt>
+
+<dd class="class"><dd>
+
+<pre class="doc">This class implements the basic preprocessing.</pre>
+
+</dd><h4 class="head-methods">Methods </h4><dl class="function"><dt><a name="Preprocessor-__init__" href="#Preprocessor-__init__"><span class="function-name">__init__</span></a><span class="argspec">(self, config)</span></dt><dd>
+<pre class="doc"></pre>
+</dd></dl>
+<dl class="function"><dt><a name="Preprocessor-preprocess_section" href="#Preprocessor-preprocess_section"><span class="function-name">preprocess_section</span></a><span class="argspec">(self, section)</span></dt><dd>
+<pre class="doc">Preprocess the contents of *section*.</pre>
+</dd></dl>
+
+  <h4 class="head-desc">Descriptors </h4><dl class="descriptor"><dt>__dict__</dt>
+<dd>
+<pre class="doc">dictionary for instance variables (if defined)</pre>
+</dd>
+</dl>
+<dl class="descriptor"><dt>__weakref__</dt>
+<dd>
+<pre class="doc">list of weak references to the object (if defined)</pre>
+</dd>
+</dl>
+</dd>
+
+<h3 id="pydocmk2.preprocessors.pydocproc.Preprocessor.preprocess_section">preprocess_section</h3>
+
+<dl class="function"><dt><a name="-pydocmk2.preprocessors.pydocproc.Preprocessor.preprocess_section" href="#-pydocmk2.preprocessors.pydocproc.Preprocessor.preprocess_section"><span class="function-name">pydocmk2.preprocessors.pydocproc.Preprocessor.preprocess_section</span></a> = preprocess_section<span class="argspec">(self, section)</span><span class="note"> unbound <a href="./pydocmk2.preprocessors.pydocproc.html#Preprocessor">pydocmk2.preprocessors.pydocproc.Preprocessor</a> method</span></dt><dd>
+<pre class="doc">Preprocess the contents of *section*.</pre>
+</dd></dl>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="pydocmk2.preprocessors.google.html" title="google" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                google
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="pydocmk2.preprocessors.rst.html" title="rst" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                rst
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>
