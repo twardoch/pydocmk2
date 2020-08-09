@@ -1,6 +1,6 @@
 <h1 id="pydocmk2.document">pydocmk2.document</h1>
 
-<h2><a href="./pydocmk2.html">pydocmk2</a>.document</h2> <span class="file-reference">/Users/adam/Developer/vcs/github.twardoch/pub/pydocmk2/pydocmk2/document.py</span> <div class="module">  <div class="docstring">
+<h2><a href="./pydocmk2.html">pydocmk2</a>.document</h2> <div class="module">  <div class="docstring">
 <pre class="doc">This module implements the structural representation of an API documentation
 in separate documents and symbolic names. The final documentation is rendered
 from this structured representation.</pre>

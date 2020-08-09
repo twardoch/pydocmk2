@@ -1,6 +1,6 @@
 <h1 id="pydocmk2.preprocessors.google">pydocmk2.preprocessors.google</h1>
 
-<h2><a href="./pydocmk2.html">pydocmk2</a>.<a href="./pydocmk2.preprocessors.html">preprocessors</a>.google</h2> <span class="file-reference">/Users/adam/Developer/vcs/github.twardoch/pub/pydocmk2/pydocmk2/preprocessors/google.py</span> <div class="module">  <div class="docstring">
+<h2><a href="./pydocmk2.html">pydocmk2</a>.<a href="./pydocmk2.preprocessors.html">preprocessors</a>.google</h2> <div class="module">  <div class="docstring">
 <pre class="doc"></pre>
 </div>  <div class="modules"><h3>Modules</h3><ul class="list"><li><a href="./re.html">re</a></li></ul></div>  <div class="classes"><h3>Classes</h3><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.preprocessors.google.html#Preprocessor">Preprocessor</a></span></li></ul><dl class="classes"><dt class="class"><h2><a name="Preprocessor" href="#Preprocessor">class <span class="class-name">Preprocessor</span></a></h2></dt><dd class="class"><dd>
 

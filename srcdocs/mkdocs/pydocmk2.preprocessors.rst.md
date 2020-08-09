@@ -1,6 +1,6 @@
 <h1 id="pydocmk2.preprocessors.rst">pydocmk2.preprocessors.rst</h1>
 
-<h2><a href="./pydocmk2.html">pydocmk2</a>.<a href="./pydocmk2.preprocessors.html">preprocessors</a>.rst</h2> <span class="file-reference">/Users/adam/Developer/vcs/github.twardoch/pub/pydocmk2/pydocmk2/preprocessors/rst.py</span> <div class="module">  <div class="docstring">
+<h2><a href="./pydocmk2.html">pydocmk2</a>.<a href="./pydocmk2.preprocessors.html">preprocessors</a>.rst</h2> <div class="module">  <div class="docstring">
 <pre class="doc">This module implements preprocessing Markdown-like docstrings and converts
 it to fully markdown compatible markup.</pre>
 </div>  <div class="modules"><h3>Modules</h3><ul class="list"><li><a href="./re.html">re</a></li><li><a href="./textwrap.html">textwrap</a></li></ul></div>  <div class="classes"><h3>Classes</h3><ul class="tree"><li><span class="class-name"><a href="./__builtin__.html#object">__builtin__.object</a></span></li><li><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.preprocessors.rst.html#Preprocessor">Preprocessor</a></span></li></ul></li></ul><dl class="classes"><dt class="class"><h2><a name="Preprocessor" href="#Preprocessor">class <span class="class-name">Preprocessor</span></a>(<a href="./__builtin__.html#object">__builtin__.object</a>)</h2></dt><dd class="class"><dd>

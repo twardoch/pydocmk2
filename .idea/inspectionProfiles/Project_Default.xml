@@ -1,0 +1,38 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="GjsLint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HbEmptyBlock" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSHint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JSLint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyArgumentEqualDefaultInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyClassicStyleClassInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.6" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyMandatoryEncodingInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="mdx-steroids" />
+            <item index="1" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="2" class="java.lang.String" itemvalue="wsgiref" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="Stylelint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="TsLint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="UnionWithNoneInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnionWithObjectInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnionWithOneChildToChildInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>

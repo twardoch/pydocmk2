@@ -1,6 +1,6 @@
 <h1 id="pydocmk2.loader">pydocmk2.loader</h1>
 
-<h2><a href="./pydocmk2.html">pydocmk2</a>.loader</h2> <span class="file-reference">/Users/adam/Developer/vcs/github.twardoch/pub/pydocmk2/pydocmk2/loader.py</span> <div class="module">  <div class="docstring">
+<h2><a href="./pydocmk2.html">pydocmk2</a>.loader</h2> <div class="module">  <div class="docstring">
 <pre class="doc">This module provides implementations to load documentation information from
 an identifier as it is specified in the `pydocmk.yml:generate` configuration
 key. A loader basically takes care of loading the documentation content for

@@ -252,6 +252,8 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
         except TypeError:
             components['fileref'] = '<span class="file-reference builtin">(built-in)</span>'
 
+        components['fileref'] = '' # TODO remove fileref
+
         info = []
         if hasattr(object, '__version__'):
             version = pydoc._binstr(object.__version__)
@@ -379,7 +381,8 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
             components['credits'] = self.geadubg(
                 level + 2, 'Credits') + pydoc._binstr(object.__credits__)
 
-        result = '%(head)s %(fileref)s %(docloc)s' % components
+        result = '%(head)s %(docloc)s' % components
+        # result = '%(head)s %(fileref)s %(docloc)s' % components # TODO fileref disabled
         result += '<div class="module">' % components
         result += '  <div class="docstring">%(doc)s</div>' % components
 

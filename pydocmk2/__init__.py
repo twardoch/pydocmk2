@@ -20,5 +20,5 @@
 """
 pymdocmk2 module
 """
-__author__ = 'Adam Twardoch <adam+github@twardoch.com>'
-__version__ = '2.2.0'
+__author__ = 'Adam Twardoch, Niklas Rosenstein'
+__version__ = '2.2.1'
