@@ -267,7 +267,7 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
         # build the main heading
         if info:
             components['head'] = self.heading(
-                level + 1, '%s(<span class="info">%s)' % (head_link, ', '.join(info)))
+                level + 1, '%s (<span class="info">%s)' % (head_link, ', '.join(info)))
 
         else:
             # heading which is a linked representation of the module "address"

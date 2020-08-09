@@ -1,5 +1,10 @@
 <h1 id="pydocmk2.__main__">pydocmk2.__main__</h1>
 
+
+
+ This is used by the command-line interface. 
+
+
 <h2><a href="./pydocmk2.html">pydocmk2</a>.__main__</h2> <div class="module">  <div class="docstring">
 <pre class="doc">python2 -m pydocmk2 build</pre>
 </div>  <div class="modules"><h3>Modules</h3><ul class="list"><li>argparse</li><li>atexit</li><li>json</li><li>os</li><li>shutil</li><li>signal</li><li>subprocess</li><li>sys</li><li>yaml</li></ul></div>  <div class="classes"><h3>Classes</h3><ul class="tree"><li><span class="class-name"><a href="./__builtin__.html#object">__builtin__.object</a></span></li><li><ul class="tree"><li><span class="class-name"><a href="./pydocmk2.__main__.html#PyDocMk">PyDocMk</a></span></li></ul></li></ul><dl class="classes"><dt class="class"><h2><a name="PyDocMk" href="#PyDocMk">class <span class="class-name">PyDocMk</span></a>(<a href="./__builtin__.html#object">__builtin__.object</a>)</h2></dt><dd class="class"><dd>
@@ -58,11 +63,6 @@ configuration and makes sure it gets removed when this program exists.</pre>
 <pre class="doc"></pre>
 </dd></dl>
 </dl></div></div>
-
-
- This is used by the command-line interface. 
-
-
 <h2 id="pydocmk2.__main__.PyDocMk">PyDocMk</h2>
 
 <dt class="class"><h2><span class="class-name">pydocmk2.__main__.PyDocMk</span> = <a name="pydocmk2.__main__.PyDocMk" href="#pydocmk2.__main__.PyDocMk">class PyDocMk</a>(<a href="./__builtin__.html#object">__builtin__.object</a>)</h2></dt><dd class="class"><dd>
