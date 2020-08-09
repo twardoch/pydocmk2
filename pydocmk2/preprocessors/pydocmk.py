@@ -661,7 +661,7 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
         return self._docdescriptor(name, object, mod)
 
 
-def doc(name):
+def pydoc_html(name):
     content = ''
     ob, name = pydoc.resolve(name, 0)
     text = MarkdownDoc()
@@ -681,4 +681,4 @@ class Preprocessor(object):
         """
         Preprocess the contents of *section*.
         """
-        section.content = doc(section.identifier)
+        section.content = pydoc_html(section.identifier)

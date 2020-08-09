@@ -25,6 +25,7 @@ python2 -m pydocmk2 build
 
 from __future__ import print_function
 from .document import Index
+from .preprocessors.pydocmk import pydoc_html
 from .imp import import_object, dir_object
 import argparse
 
@@ -57,6 +58,8 @@ class PyDocMk(object):
         self.config_dir = os.getcwd()
         self.docs_dir = os.path.join(self.config_dir, 'srcdocs')
         self.gens_dir = os.path.join(self.config_dir, '_build/mkdocs')
+        self.pre_dir = None
+        self.post_dir = None
         self.config_path = os.path.join(self.config_dir, 'pydocmk.yml')
         self.mkdocs_path = os.path.join(self.config_dir, 'mkdocs.yml')
         self.config = {}
@@ -74,8 +77,9 @@ class PyDocMk(object):
             "command",
             default='build',
             choices=['generate', 'build', 'gh-deploy',
-                     'json', 'new', 'serve', 'simple'],
+                     'json', 'new', 'serve', 'simple', 'pydoc'],
             help="""`simple`: output one .md file, e.g. `simple mypackage+ mypackage.my module+ > docs.md`,
+        `pydoc`: output the content of the pydocmk preprocessor,
         `generate`: generate .md but do not run mkdocs,
         `build`: generate .md and build with mkdocs,
         `serve`: generate .md, build with mkdocs and run a webserver"""
@@ -121,7 +125,7 @@ class PyDocMk(object):
             dest="clean",
             action="store_true"
         )
-        
+
         self.args = parser.parse_args()
         if self.args.command:
             self.command = self.args.command
@@ -136,7 +140,7 @@ class PyDocMk(object):
         if self.args.config_custom:
             self.config_custom = self.args.config_custom
 
-        if self.args.command == 'simple' and not self.args.subargs:
+        if self.args.command in ('simple', 'pydoc') and not self.args.subargs:
             parser.error('need at least one argument')
 
     def read_config(self):
@@ -167,8 +171,17 @@ class PyDocMk(object):
             self.gens_dir = os.path.join(self.config_dir, self.gens_dir)
         self.config.setdefault('site_dir', '_build/docs')
         self.config.setdefault('pydocmk_pre_dir', None)
+        self.pre_dir = self.config['pydocmk_pre_dir']
+        if self.pre_dir:
+            if not os.path.isabs(self.pre_dir):
+                self.pre_dir = os.path.join(self.config_dir, self.pre_dir)
         self.config.setdefault('pydocmk_post_dir', None)
-        if self.command == 'simple':
+        self.post_dir = self.config['pydocmk_post_dir']
+        if self.post_dir:
+            if not os.path.isabs(self.post_dir):
+                self.post_dir = os.path.join(
+                    self.config_dir, self.post_dir)
+        if self.command in ('simple', 'pydoc'):
             self.config.setdefault('headers', 'markdown')
         else:
             self.config.setdefault('headers', 'html')
@@ -178,7 +191,6 @@ class PyDocMk(object):
             'preprocessor', 'pydocmk2.preprocessors.pydocmk.Preprocessor')
         self.config.setdefault('additional_search_paths', [])
 
-
     def write_temp_mkdocs_config(self):
         """
         Generates a configuration for MkDocs on-the-fly from the pydocmk2
@@ -187,14 +199,14 @@ class PyDocMk(object):
         ignored_keys = ('gens_dir', 'pages', 'headers', 'generate', 'loader',
                         'preprocessor', 'additional_search_paths', 'pydocmk_pre_dir', 'pydocmk_post_dir')
 
-        self.mk_config = {key: value for key, value in self.config.items() if key not in ignored_keys}
+        self.mk_config = {key: value for key,
+                          value in self.config.items() if key not in ignored_keys}
         self.mk_config['docs_dir'] = self.config['gens_dir']
         if 'pages' in self.config:
             self.mk_config['nav'] = self.config['pages']
 
         with open(self.mkdocs_path, 'w') as fp:
             yaml.dump(self.mk_config, fp)
-
 
     def makedirs(self, path):
         """
@@ -204,14 +216,15 @@ class PyDocMk(object):
         if not os.path.isdir(path):
             os.makedirs(path)
 
-
     # Also process all pages to copy files outside of the docs_dir to the gens_dir.
+
     def process_pages(self, data, gens_dir):
         for key in data:
             filename = data[key]
             if isinstance(filename, str) and '<<' in filename:
                 filename, source = filename.split('<<')
-                filename, source = filename.rstrip(), os.path.join(self.config_dir, source.lstrip())
+                filename, source = filename.rstrip(), os.path.join(
+                    self.config_dir, source.lstrip())
                 outfile = os.path.join(gens_dir, filename)
                 self.makedirs(os.path.dirname(outfile))
                 shutil.copyfile(source, outfile)
@@ -262,19 +275,23 @@ class PyDocMk(object):
         for page in self.config['pages']:
             self.process_pages(page, self.gens_dir)
 
-
     def new_project(self):
         with open('pydocmk.yml', 'w') as fp:
             fp.write(
                 'site_name: Welcome to pydoc-markdown\ngenerate:\npages:\n- Home: index.md << ../README.md\n')
-
 
     def main(self):
         if self.command == 'new':
             self.new_project()
             return
 
-        if self.command != 'simple':
+        if self.command == 'pydoc':
+            if len(self.subargs):
+                mod = self.subargs[0]
+                print(pydoc_html(mod))
+            return
+
+        if self.command not in ('simple', 'pydoc'):
             self.read_config()
         else:
             self.default_config(blank=True)
@@ -289,8 +306,9 @@ class PyDocMk(object):
         loader = import_object(self.config['loader'])(self.config)
         preproc = import_object(self.config['preprocessor'])(self.config)
 
-        if self.command != 'simple':
-            self.mkdocs_path = os.path.join(os.path.dirname(self.config_path), 'mkdocs.yml')
+        if self.command not in ('simple', 'pydoc'):
+            self.mkdocs_path = os.path.join(
+                os.path.dirname(self.config_path), 'mkdocs.yml')
             self.clean_files()
             mkdocs_exist = os.path.isfile(self.mkdocs_path)
             self.copy_source_files(pages_required=not mkdocs_exist)
@@ -321,7 +339,7 @@ class PyDocMk(object):
                     if level > expand_depth:
                         return
                     index.new_section(doc, name, depth=depth + level,
-                                      header_type=self.config.get('headers', 'html'))
+                                      header_type=self.config.get('headers', 'html'), pre_dir=self.pre_dir, post_dir=self.post_dir)
                     sort_order = self.config.get('sort')
                     if sort_order not in ('line', 'name'):
                         sort_order = 'line'
@@ -380,7 +398,8 @@ class PyDocMk(object):
         log("Running 'mkdocs {}'".format(self.command))
         sys.stdout.flush()
 
-        mk_args = [self.python_path, '-m', 'mkdocs', self.command, '-f', self.mkdocs_path] + self.subargs
+        mk_args = [self.python_path, '-m', 'mkdocs',
+                   self.command, '-f', self.mkdocs_path] + self.subargs
         try:
             return subprocess.call(mk_args)
         except KeyboardInterrupt:

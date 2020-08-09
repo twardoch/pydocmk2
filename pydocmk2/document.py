@@ -46,13 +46,15 @@ class Section(object):
     content (str): The Markdown-formatted content of the section.
     """
 
-    def __init__(self, doc, identifier=None, title=None, depth=1, content=None, header_type='html'):
+    def __init__(self, doc, identifier=None, title=None, depth=1, content=None, header_type='html', pre_dir=None, post_dir=None):
         self.doc = doc
         self.identifier = identifier
         self.title = title
         self.depth = depth
         self.content = content if content is not None else '*Nothing to see here.*'
         self.header_type = header_type
+        self.pre_dir = pre_dir
+        self.post_dir = post_dir
 
     def render(self, stream):
         """
@@ -64,10 +66,26 @@ class Section(object):
                   .format(depth=self.depth, id=self.identifier, title=self.title),
                   file=stream)
         elif self.header_type == 'markdown':
-            print('\n' + ('#' * self.depth), self.title, file=stream)
+            print('\n{depth} {title} {{#{id}}}\n'.format(depth='#' * self.depth, id=self.identifier,
+                                                         title=self.title), file=stream)
         else:
             raise ValueError('Invalid header type: %s' % self.header_type)
+
+        if self.pre_dir:
+            pre_path = os.path.join(self.pre_dir, self.title + '.md')
+            if os.path.isfile(pre_path):
+                with open(pre_path, 'r') as fp:
+                    pre = fp.read()
+                print('\n\n', pre, '\n\n', file=stream)
+
         print(self.content, file=stream)
+
+        if self.post_dir:
+            post_path = os.path.join(self.post_dir, self.title + '.md')
+            if os.path.isfile(post_path):
+                with open(post_path, 'r') as fp:
+                    post = fp.read()
+                print('\n\n', post, '\n\n', file=stream)
 
     @property
     def index(self):

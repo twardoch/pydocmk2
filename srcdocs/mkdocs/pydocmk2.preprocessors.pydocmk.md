@@ -205,7 +205,7 @@ Also escapes input text</pre>
 <pre class="doc">mainly for cleaning < and > from `Repr`s</pre>
 </dd></dl>
 
-<dl class="function"><dt><a name="-doc" href="#-doc"><span class="function-name">doc</span></a><span class="argspec">(name)</span></dt><dd>
+<dl class="function"><dt><a name="-pydoc_html" href="#-pydoc_html"><span class="function-name">pydoc_html</span></a><span class="argspec">(name)</span></dt><dd>
 <pre class="doc"></pre>
 </dd></dl>
 </dl></div></div>

@@ -139,10 +139,15 @@ GitHub-style Markdown code-blocks with language annotations can be used.
 
 ## Changes
 
+### v2.2.2 (2020-08-09)
+
+- a Markdown files found in the folder specified as `pydocmk_pre_dir` with the name that matches the Python object name (plus `.md` extension) will be included at the beginning of the object's section
+- a Markdown files found in the folder specified as `pydocmk_post_dir` with the name that matches the Python object name (plus `.md` extension) will be included at the end of the object's section
+
 ### v2.2.0 (2020-08-07)
 
 - fork from https://github.com/NiklasRosenstein/pydoc-markdown/tree/2.x to https://github.com/twardoch/pydocmk2 by @twardoch
-- added pydocproc preprocessor based on original pydoc
+- added pydocmk preprocessor based on original pydoc
 - changes to allow documenting modules that are C++ bindings
 
 ### v2.1.3 (2020-03-21)
