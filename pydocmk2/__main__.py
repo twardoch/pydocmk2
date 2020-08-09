@@ -1,3 +1,4 @@
+# coding=utf-8
 # Copyright (c) 2020  Adam Twardoch
 # Copyright (c) 2017  Niklas Rosenstein
 #

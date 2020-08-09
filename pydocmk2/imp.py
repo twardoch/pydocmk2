@@ -101,7 +101,7 @@ def dir_object(name, sort_order, need_docstrings=True):
     obj = import_object(name)
     if isinstance(obj, types.ModuleType):
         prefix = obj.__name__
-    all = getattr(obj, '__all__', None)
+    allattr = getattr(obj, '__all__', None)
 
     # Import any modules attached to this object so that this will work with lazy imports.  Otherwise
     # the block below will fail because the object will change while it's being iterated.
@@ -122,7 +122,7 @@ def dir_object(name, sort_order, need_docstrings=True):
         if not (isinstance(value, type) and dir_object(name + '.' + key, sort_order, True)):
             if need_docstrings and not value.__doc__:
                 continue
-            if all is not None and key not in all:
+            if allattr is not None and key not in allattr:
                 continue
 
         if prefix is not None and getattr(value, '__module__', None) != prefix:
