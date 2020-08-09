@@ -2,7 +2,7 @@
 
 <h2><a href="./pydocmk2.html">pydocmk2</a>.imp</h2> <div class="module">  <div class="docstring">
 <pre class="doc">This module provides utilities for importing Python objects by name.</pre>
-</div>  <div class="modules"><h3>Modules</h3><ul class="list"><li><a href="./inspect.html">inspect</a></li><li><a href="./types.html">types</a></li></ul></div>  <div class="functions"><h3>Functions</h3><dl class="functions"><dl class="function"><dt><a name="-dir_object" href="#-dir_object"><span class="function-name">dir_object</span></a><span class="argspec">(name, sort_order, need_docstrings<span class="parameter-default">=True</span>)</span></dt><dd>
+</div>  <div class="modules"><h3>Modules</h3><ul class="list"><li>inspect</li><li>types</li></ul></div>  <div class="functions"><h3>Functions</h3><dl class="functions"><dl class="function"><dt><a name="-dir_object" href="#-dir_object"><span class="function-name">dir_object</span></a><span class="argspec">(name, sort_order, need_docstrings<span class="parameter-default">=True</span>)</span></dt><dd>
 <pre class="doc"></pre>
 </dd></dl>
 

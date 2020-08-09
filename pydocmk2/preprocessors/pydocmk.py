@@ -117,7 +117,8 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
 
     def modulelink(self, object):
         """Make a link for a module."""
-        return '<a href="%s">%s</a>' % (self.url(object.__name__), object.__name__)
+        # return '<a href="%s">%s</a>' % (self.url(object.__name__), object.__name__) # TODO No module links because global modules are included
+        return '%s' % (object.__name__)
 
     def classlink(self, object, modname):
         """Make a link for a class."""
@@ -252,7 +253,7 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
         except TypeError:
             components['fileref'] = '<span class="file-reference builtin">(built-in)</span>'
 
-        components['fileref'] = '' # TODO remove fileref
+        components['fileref'] = ''  # TODO remove fileref
 
         info = []
         if hasattr(object, '__version__'):
