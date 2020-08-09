@@ -8,6 +8,56 @@ use_directory_urls: false
 site_name: pydocmk2
 repo_url: https://github.com/twardoch/pydocmk2
 theme: material
+markdown_extensions:
+        - attr_list
+        - def_list
+        - tables
+        - abbr
+        - admonition
+        - codehilite
+        - pymdownx.betterem:
+                  smart_enable: "all" # 'all' | 'asterisk' | 'underscore' | 'none'
+        - pymdownx.superfences:
+                  disable_indented_code_blocks: false
+                  highlight_code: true
+        - pymdownx.escapeall:
+                  hardbreak: true
+                  nbsp: true
+        - pymdownx.highlight:
+                  css_class: "highlight"
+                  guess_lang: false
+                  linenums: false
+                  noclasses: true
+                  pygments_style: "default"
+                  use_pygments: false
+        - pymdownx.inlinehilite:
+                  css_class: "highlight"
+                  style_plain_text: false
+                  #use_codehilite_settings : false
+        - pymdownx.magiclink:
+                  hide_protocol: true
+        - pymdownx.mark:
+                  smart_mark: true # Allows for ==mark==me==
+        - pymdownx.smartsymbols:
+                  arrows: true
+                  care_of: false
+                  copyright: true
+                  fractions: true
+                  notequal: true
+                  ordinal_numbers: false
+                  plusminus: true
+                  registered: true
+                  trademark: true
+        - pymdownx.tasklist:
+                  custom_checkbox: false
+        - pymdownx.tilde:
+                  smart_delete: false
+                  delete: true
+                  subscript: false
+        - pymdownx.caret:
+                  smart_insert: true
+                  insert: true
+                  superscript: true
 
 generate:
         - pydocmk2.md:

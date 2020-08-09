@@ -184,12 +184,14 @@ class PyDocMk(object):
         if self.command in ('simple', 'pydoc'):
             self.config.setdefault('headers', 'markdown')
         else:
-            self.config.setdefault('headers', 'html')
+            self.config.setdefault('headers', 'markdown')
         self.config.setdefault('theme', 'readthedocs')
         self.config.setdefault('loader', 'pydocmk2.loader.PythonLoader')
         self.config.setdefault(
             'preprocessor', 'pydocmk2.preprocessors.pydocmk.Preprocessor')
         self.config.setdefault('additional_search_paths', [])
+        self.config.setdefault('markdown_extensions', [
+                               'attr_list', 'def_list', 'tables', 'abbr', 'admonition', 'codehilite', 'pymdownx.extrarawhtml'])
 
     def write_temp_mkdocs_config(self):
         """

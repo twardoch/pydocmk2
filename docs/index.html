@@ -763,18 +763,15 @@
                 <h1 id="pydocmk2">pydocmk2</h1>
 <p><a href="https://github.com/twardoch/pydocmk2">pydocmk2</a> uses <a href="https://www.mkdocs.org/">MkDocs</a> to build Python API documentation. Forked from <a href="https://github.com/NiklasRosenstein/pydoc-markdown/tree/2.x">pydoc-markdown 2.x</a>, pydocmk2 is focused on Python 2.7 support for legacy reasons, and uses a modified version of the original. It also includes a modified version of the Python 2.7 <a href="https://github.com/python/cpython/blob/2.7/Lib/pydoc.py">pydoc</a> tool.</p>
 <h2 id="installation">Installation</h2>
-<pre><code>python2 -m pip install git+https://github.com/twardoch/pydocmk2
-</code></pre>
+<pre class="highlight"><code>python2 -m pip install git+https://github.com/twardoch/pydocmk2</code></pre>
 
 <h2 id="usage">Usage</h2>
 <p>pydocmk2 can generate plain Markdown files from Python modules using the
 <code>pydocmk2 simple</code> command. Specify one or more module names on the command-line.
 Supports the <code>+</code> syntax to include members of the module (or <code>++</code> to include
 members of the members, etc.)</p>
-<pre><code>pydocmk2 simple mypackage+ mypackage.mymodule+ &gt; docs.md
-</code></pre>
-
-<p>Alternatively, pydocmk2 wraps the MkDocs command-line interface and generates
+<p><pre class="highlight"><code>pydocmk2 simple mypackage+ mypackage.mymodule+ &gt; docs.md</code></pre>
+Alternatively, pydocmk2 wraps the MkDocs command-line interface and generates
 the markdown pages beforehand. Simply use <code>pydocmk2 build</code> to build the
 documentation, or <code>pydocmk2 serve</code> to serve the documentation on a local HTTP
 server. The <code>pydocmk2 gh-deploy</code> from MkDocs is also supported.</p>
@@ -782,7 +779,7 @@ server. The <code>pydocmk2 gh-deploy</code> from MkDocs is also supported.</p>
 Below is an example configuration. To get started, create <code>docs/</code> directory
 and a file <code>pydocmk2.yml</code> inside of it. Copy the configuration below and
 adjust it to your needs, then run <code>pydocmk2 build</code> from the <code>docs/</code> directory.</p>
-<pre><code class="yaml">site_name: &quot;My Documentation&quot;
+<pre class="highlight"><code class="language-yaml">site_name: "My Documentation"
 
 # This tells pydocmk2 which pages to generate from which Python modules,
 # functions and classes. At the first level is the page name, below that
@@ -827,8 +824,7 @@ headers: html
 # subdirectory of your project (eg. docs/), you may want to add the parent
 # directory here.
 additional_search_paths:
-- ..
-</code></pre>
+- ..</code></pre>
 
 <h2 id="syntax">Syntax</h2>
 <h3 id="cross-references">Cross-references</h3>
@@ -870,11 +866,13 @@ documentation unless separated by another declaration or an empty line. <code>&l
 placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.</p>
 <h3 id="code-blocks">Code Blocks</h3>
 <p>GitHub-style Markdown code-blocks with language annotations can be used.</p>
-<pre><code>```python
-&gt;&gt;&gt; for i in range(100):
-...
-```
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="err">```python</span>
+<span class="err">&gt;&gt;&gt; for i in range(100):</span>
+<span class="err">...</span>
+<span class="err">```</span>
+</pre></div>
+
+
 <hr />
 <h2 id="changes">Changes</h2>
 <h3 id="v222-2020-08-09">v2.2.2 (2020-08-09)</h3>
@@ -884,7 +882,7 @@ placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.<
 </ul>
 <h3 id="v220-2020-08-07">v2.2.0 (2020-08-07)</h3>
 <ul>
-<li>fork from https://github.com/NiklasRosenstein/pydoc-markdown/tree/2.x to https://github.com/twardoch/pydocmk2 by @twardoch</li>
+<li>fork from <a href="https://github.com/NiklasRosenstein/pydoc-markdown/tree/2.x">github.com/NiklasRosenstein/pydoc-markdown/tree/2.x</a> to <a href="https://github.com/twardoch/pydocmk2">github.com/twardoch/pydocmk2</a> by @twardoch</li>
 <li>added pydocmk preprocessor based on original pydoc</li>
 <li>changes to allow documenting modules that are C++ bindings</li>
 </ul>

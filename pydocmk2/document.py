@@ -62,12 +62,20 @@ class Section(object):
         """
 
         if self.header_type == 'html':
-            print('<h{depth} id="{id}">{title}</h{depth}>\n'
-                  .format(depth=self.depth, id=self.identifier, title=self.title),
-                  file=stream)
+            print(
+                '<h{depth} id="{id}">{title}</h{depth}>\n'
+                .format(
+                    depth=self.depth, id=self.identifier, title=self.title
+                ),
+                file=stream
+            )
         elif self.header_type == 'markdown':
-            print('\n{depth} {title} {{#{id}}}\n'.format(depth='#' * self.depth, id=self.identifier,
-                                                         title=self.title), file=stream)
+            print(
+                '\n\n<a name="{id}"></a>\n\n{depth} `{title}`\n\n'.format(
+                    depth='#' * self.depth,
+                    id=self.identifier, title=self.title
+                ), file=stream
+            )
         else:
             raise ValueError('Invalid header type: %s' % self.header_type)
 

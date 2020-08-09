@@ -7,7 +7,7 @@
 # The Python Software Foundation License Version 2
 # https://github.com/python/cpython/blob/2.7/LICENSE
 """
-pydocproc preprocessor
+pydocmk preprocessor
 """
 import __builtin__
 import os
@@ -23,12 +23,12 @@ import jinja2
 from markdown import Markdown
 
 extra_extensions = []
-if 'markdown.extensions.codehilite' in extra_extensions:
-    import markdown.extensions.codehilite
-    extra_extensions.pop(extra_extensions.index(
-        'markdown.extensions.codehilite'))
-    extra_extensions.append(
-        markdown.extensions.codehilite.CodeHiliteExtension(linenums=False))
+# if 'markdown.extensions.codehilite' in extra_extensions:
+#    import markdown.extensions.codehilite
+#    extra_extensions.pop(extra_extensions.index(
+#        'markdown.extensions.codehilite'))
+#    extra_extensions.append(
+#        markdown.extensions.codehilite.CodeHiliteExtension(linenums=False))
 
 md = Markdown(
     output_format='xhtml5',
@@ -73,16 +73,19 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
 
     def getdoc(self, object):
         doc = pydoc.getdoc(object)
-        return '\n<pre class="doc">%s</pre>\n' % (doc)
+        return '\n\n<pre class="doc" markdown="0">%s</pre>\n\n' % (doc)
 
-    def heading(self, level, content):
+    def heading(self, level, content, html=True):
         """ Create a HTML heading """
 
         level += self.level_offset
         if level > 6:
             level = 6  # HTML headings only go from h1 to h6
 
-        return "<h%d>%s</h%d>" % (level, content, level)
+        if html:
+            return "<h%d>%s</h%d>" % (level, content, level)
+        else:
+            return "\n\n%s %s\n\n" % ("#" * level, content)
 
     def url(self, name):
         """ Create URL for a documentable thing. Mainly intended for subclassing """
@@ -558,7 +561,8 @@ class MarkdownDoc(pydoc.HTMLDoc, object):
                 parents.append(self.classlink(base, object.__module__))
             title = title + '(%s)' % ', '.join(parents)
 
-        result = '<dt class="class">%s</dt>' % self.heading(level, title)
+        result = '<dt class="class">%s</dt>' % self.heading(
+            level, title)
 
         result += '<dd class="class">'
         result += '<dd>\n%s\n</dd>' % doc
