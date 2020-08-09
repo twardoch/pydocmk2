@@ -177,9 +177,9 @@ class Index(object):
         section = Section(doc, *args, **kwargs)
         if section.identifier:
             if section.identifier in self.sections:
-                section.identifier = "%s-alt" % (section.identifier)
-                # raise ValueError('section identifier {!r} already used'
-                #                 .format(section.identifier))
-            self.sections[section.identifier] = section
+                print('section identifier {!r} already used'.format(
+                    section.identifier))
+            else:
+                self.sections[section.identifier] = section
         doc.sections.append(section)
         return section

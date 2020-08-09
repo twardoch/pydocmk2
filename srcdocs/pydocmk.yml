@@ -8,6 +8,7 @@ use_directory_urls: false
 site_name: pydocmk2
 repo_url: https://github.com/twardoch/pydocmk2
 theme: material
+
 markdown_extensions:
         - attr_list
         - def_list

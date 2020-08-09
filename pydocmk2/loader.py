@@ -214,7 +214,10 @@ def format_parameters_list(parameters):
         if param.kind == Parameter.KWONLY and not found_kwonly:
             found_kwonly = True
             result.append('*')
-        result.append(str(param))
+        try:
+            result.append(str(param))
+        except TypeError:
+            result.append(repr(param))
     return ', '.join(result)
 
 
@@ -290,23 +293,27 @@ def get_function_signature(
     sig = (name_placeholder if pretty else name) + \
         '(' + format_parameters_list(parameters) + ')'
 
-    if pretty:
-        sig, _ = FormatCode('def ' + sig + ': pass', style_config='pep8')
-        sig = sig[4:].rpartition(':')[0]
+    try:
+        if pretty:
+            sig, _ = FormatCode('def ' + sig + ': pass', style_config='pep8')
+            sig = sig[4:].rpartition(':')[0]
 
-        # Replace the annotation and default placeholders with the actual values.
-        for placeholder, annotation in supplements.items():
-            sig = sig.replace(placeholder, repr(annotation))
+            # Replace the annotation and default placeholders with the actual values.
+            for placeholder, annotation in supplements.items():
+                sig = sig.replace(placeholder, repr(annotation))
 
-        # Replace the placeholder and fix indents.
-        sig = sig.replace(name_placeholder, name)
-        delta = len(name_placeholder) - len(name)
-        lines = sig.split('\n')
-        for i, line in enumerate(lines[1:], 1):
-            indent = len(line) - len(line.lstrip()) - delta - 4  # 4 for "def "
-            if indent <= 0 and line.strip() != ')':
-                indent = 4
-            lines[i] = ' ' * indent + line.lstrip()
-        sig = '\n'.join(lines)
+            # Replace the placeholder and fix indents.
+            sig = sig.replace(name_placeholder, name)
+            delta = len(name_placeholder) - len(name)
+            lines = sig.split('\n')
+            for i, line in enumerate(lines[1:], 1):
+                indent = len(line) - len(line.lstrip()) - \
+                    delta - 4  # 4 for "def "
+                if indent <= 0 and line.strip() != ')':
+                    indent = 4
+                lines[i] = ' ' * indent + line.lstrip()
+            sig = '\n'.join(lines)
+    except:
+        pass
 
     return sig

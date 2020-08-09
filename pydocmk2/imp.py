@@ -79,8 +79,7 @@ def import_object_with_scope(name):
                 obj = scope = import_module(current_name)
             except ImportError as exc:
                 if 'named {}'.format(part) in str(exc):
-                    raise ImportError(current_name)
-                raise
+                    print("Cannot import %s" % (current_name))  # TODO Log
     return obj, scope
 
 

@@ -61,7 +61,7 @@ class PyDocMk(object):
         self.pre_dir = None
         self.post_dir = None
         self.config_path = os.path.join(self.config_dir, 'pydocmk.yml')
-        self.mkdocs_path = os.path.join(self.config_dir, 'mkdocs.yml')
+        self.mkdocs_path = None
         self.config = {}
         self.mk_config = {}
         self.python_path = 'python2'
@@ -139,6 +139,8 @@ class PyDocMk(object):
             self.python_path = self.args.python_path
         if self.args.config_custom:
             self.config_custom = self.args.config_custom
+        if self.args.mkdocs_path:
+            self.mkdocs_path = self.args.mkdocs_path
 
         if self.args.command in ('simple', 'pydoc') and not self.args.subargs:
             parser.error('need at least one argument')
@@ -155,12 +157,11 @@ class PyDocMk(object):
     def default_config(self, blank=False):
         if blank:
             self.config = {}
-        if self.args.mkdocs_path:
-            self.mkdocs_path = self.args.mkdocs_path
-        elif self.config.get('mkdocs_path', None):
-            self.mkdocs_path = self.config['mkdocs_path']
-        else:
-            self.mkdocs_path = os.path.join(self.config_dir, 'mkdocs.yml')
+        if not self.mkdocs_path:
+            if self.config.get('mkdocs_path', None):
+                self.mkdocs_path = self.config['mkdocs_path']
+            else:
+                self.mkdocs_path = os.path.join(self.config_dir, 'mkdocs.yml')
         self.config.setdefault('docs_dir', 'srcdocs')
         self.docs_dir = self.config['docs_dir']
         if not os.path.isabs(self.docs_dir):
@@ -340,6 +341,7 @@ class PyDocMk(object):
                 def create_sections(name, level):
                     if level > expand_depth:
                         return
+                    log("Building %s" % (name))
                     index.new_section(doc, name, depth=depth + level,
                                       header_type=self.config.get('headers', 'html'), pre_dir=self.pre_dir, post_dir=self.post_dir)
                     sort_order = self.config.get('sort')
@@ -391,6 +393,7 @@ class PyDocMk(object):
             fname = os.path.join(self.gens_dir, fname)
             self.makedirs(os.path.dirname(fname))
             with open(fname, 'w') as fp:
+                log("Writing %s..." % (fname))
                 for section in doc.sections:
                     section.render(fp)
 
@@ -402,6 +405,7 @@ class PyDocMk(object):
 
         mk_args = [self.python_path, '-m', 'mkdocs',
                    self.command, '-f', self.mkdocs_path] + self.subargs
+        log(' '.join(mk_args))
         try:
             return subprocess.call(mk_args)
         except KeyboardInterrupt:
